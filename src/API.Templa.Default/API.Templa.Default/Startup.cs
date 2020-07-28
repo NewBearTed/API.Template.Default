@@ -26,6 +26,21 @@ namespace API.Templa.Default
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddApiVersioning(options =>
+            {
+
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.DefaultApiVersion = new ApiVersion(majorVersion: 1, minorVersion: 0);
+                options.ReportApiVersions = true;
+
+            });
+
+            services.AddVersionedApiExplorer(options=> {
+
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
