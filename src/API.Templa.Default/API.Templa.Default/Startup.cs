@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using API.Templa.Default.DataAccess.DataBase;
 
 namespace API.Templa.Default
 {
@@ -44,6 +46,9 @@ namespace API.Templa.Default
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
+
+            services.AddDbContext<DabeContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DabeContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
