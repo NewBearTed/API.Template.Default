@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using API.Templa.Default.Data.DataBase;
 using API.Templa.Default.Configuration;
+using AutoMapper;
 
 namespace API.Templa.Default
 {
@@ -49,7 +50,9 @@ namespace API.Templa.Default
             services.AddSwaggerGen();
 
             services.AddDbContext<DefaultDBContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DabeContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultDBContext")));
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.ResolveDependencies();
         }
