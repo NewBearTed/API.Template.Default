@@ -8,6 +8,5 @@ namespace API.Templa.Default.Business.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Task<Product> GetProduc(Guid id);
     }
 }

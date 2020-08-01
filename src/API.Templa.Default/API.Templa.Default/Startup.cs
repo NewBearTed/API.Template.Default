@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using API.Templa.Default.Data.DataBase;
+using API.Templa.Default.Configuration;
 
 namespace API.Templa.Default
 {
@@ -49,6 +50,8 @@ namespace API.Templa.Default
 
             services.AddDbContext<DefaultDBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DabeContext")));
+
+            services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
