@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Templa.Default", "API.Templa.Default\API.Templa.Default.csproj", "{4A1A84B1-03F6-4E1A-BB96-00B3432EA9A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Templa.Default.Data", "API.Templa.Default.Data\API.Templa.Default.Data.csproj", "{7C69AADD-E7C2-4AF9-966B-84344EB38154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Templa.Default.Business", "API.Templa.Default.Business\API.Templa.Default.Business.csproj", "{7E668759-A081-4513-A31C-6F48B077FEC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4A1A84B1-03F6-4E1A-BB96-00B3432EA9A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A1A84B1-03F6-4E1A-BB96-00B3432EA9A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A1A84B1-03F6-4E1A-BB96-00B3432EA9A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C69AADD-E7C2-4AF9-966B-84344EB38154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C69AADD-E7C2-4AF9-966B-84344EB38154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C69AADD-E7C2-4AF9-966B-84344EB38154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C69AADD-E7C2-4AF9-966B-84344EB38154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E668759-A081-4513-A31C-6F48B077FEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E668759-A081-4513-A31C-6F48B077FEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E668759-A081-4513-A31C-6F48B077FEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E668759-A081-4513-A31C-6F48B077FEC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

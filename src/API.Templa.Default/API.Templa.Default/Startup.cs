@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using API.Templa.Default.DataAccess.DataBase;
+using API.Templa.Default.Data.DataBase;
 
 namespace API.Templa.Default
 {
@@ -47,7 +47,7 @@ namespace API.Templa.Default
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
-            services.AddDbContext<DabeContext>(options =>
+            services.AddDbContext<DefaultDBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DabeContext")));
         }
 
