@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace API.Templa.Default.Controllers
 {
     [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public abstract class MainController : ControllerBase
     {
         private readonly INotifier _notifier;

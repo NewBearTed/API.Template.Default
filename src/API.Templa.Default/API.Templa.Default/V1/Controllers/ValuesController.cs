@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Templa.Default.Business.Interfaces;
+using API.Templa.Default.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace API.Templa.Default.Controllers
+namespace API.Templa.Default.V1.Controllers
 {
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : MainController
     {
+        public ValuesController(INotifier notifier) : base(notifier)
+        {
+        }
+
         // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<string> Get()
