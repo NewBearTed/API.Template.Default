@@ -13,13 +13,13 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Templa.Default.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : MainController
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        public ProductsController(IProductRepository productRepository, IMapper mapper)
+        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier)
+            : base(notifier)
         {
             _productRepository = productRepository;
             _mapper = mapper;
@@ -48,13 +48,16 @@ namespace API.Templa.Default.Controllers
         {
             if (id != productViewModel.Id)
             {
-                return BadRequest();
+                NotifyErrors("O id do produto não pertence a esse produto.");
+                return CustomResponse(productViewModel);
             }
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             await _productRepository.Update(_mapper.Map<Product>(productViewModel));
 
 
-            return NoContent();
+            return CustomResponse(productViewModel);
         }
 
         // POST: api/Products
@@ -63,9 +66,11 @@ namespace API.Templa.Default.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductViewModel>> PostProduct(ProductViewModel productViewModel)
         {
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
             await _productRepository.Add(_mapper.Map<Product>(productViewModel));
 
-            return CreatedAtAction("GetProduct", new { id = productViewModel.Id }, productViewModel);
+            return CustomResponse(productViewModel);
         }
 
         // DELETE: api/Products/5
@@ -81,7 +86,7 @@ namespace API.Templa.Default.Controllers
 
             await _productRepository.Remove(id);
 
-            return productViewModel;
+            return CustomResponse(productViewModel);
         }
     }
 }

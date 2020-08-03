@@ -1,4 +1,5 @@
 ﻿using API.Templa.Default.Business.Interfaces;
+using API.Templa.Default.Business.Notifications;
 using API.Templa.Default.Data.DataBase;
 using API.Templa.Default.Data.Repository;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ namespace API.Templa.Default.Configuration
         {
             services.AddScoped<DefaultDBContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<INotifier, Notifier>();
 
             return services;
         }
