@@ -1,9 +1,0 @@
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\bin\Debug\netcoreapp3.1\API.Templa.Default.Business.deps.json
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\bin\Debug\netcoreapp3.1\API.Templa.Default.Business.dll
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\bin\Debug\netcoreapp3.1\API.Templa.Default.Business.pdb
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\obj\Debug\netcoreapp3.1\API.Templa.Default.Business.csprojAssemblyReference.cache
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\obj\Debug\netcoreapp3.1\API.Templa.Default.Business.AssemblyInfoInputs.cache
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\obj\Debug\netcoreapp3.1\API.Templa.Default.Business.AssemblyInfo.cs
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\obj\Debug\netcoreapp3.1\API.Templa.Default.Business.dll
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\obj\Debug\netcoreapp3.1\API.Templa.Default.Business.pdb
-C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Templa.Default.Business\obj\Debug\netcoreapp3.1\API.Templa.Default.Business.csproj.CoreCompileInputs.cache

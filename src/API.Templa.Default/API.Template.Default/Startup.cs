@@ -34,6 +34,7 @@ namespace API.Template.Default
             services.AddApiVersioning(options =>
             {
                 options.ReportApiVersions = true;
+                options.AssumeDefaultVersionWhenUnspecified = true;
 
             });
 
@@ -69,7 +70,7 @@ namespace API.Template.Default
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Default API");
                 options.RoutePrefix = string.Empty;
             });
 
