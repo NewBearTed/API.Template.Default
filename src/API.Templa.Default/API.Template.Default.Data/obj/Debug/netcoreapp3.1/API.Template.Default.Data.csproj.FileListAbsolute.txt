@@ -1,0 +1,15 @@
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Data.deps.json
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Data.runtimeconfig.json
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Data.runtimeconfig.dev.json
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Data.dll
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Data.pdb
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Business.dll
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\bin\Debug\netcoreapp3.1\API.Template.Default.Business.pdb
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.csprojAssemblyReference.cache
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.AssemblyInfoInputs.cache
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.AssemblyInfo.cs
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.csproj.CoreCompileInputs.cache
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.csproj.CopyComplete
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.dll
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.pdb
+C:\Users\Thales\Documents\GitProjects\API.Template.Default\src\API.Templa.Default\API.Template.Default.Data\obj\Debug\netcoreapp3.1\API.Template.Default.Data.genruntimeconfig.cache
