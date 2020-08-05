@@ -30,5 +30,15 @@ namespace API.Template.Default.Business.Services
 
             await _productRepository.Update(product);
         }
+
+        public async Task Remove(Guid id)
+        {
+            var product = await _productRepository.GetById(id);
+
+            if(product == null) return;
+
+
+            await _productRepository.Update(product);
+        }
     }
 }

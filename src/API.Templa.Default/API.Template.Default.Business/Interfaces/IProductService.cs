@@ -11,5 +11,7 @@ namespace API.Template.Default.Business.Interfaces
         Task Add(Product product);
 
         Task Update(Product product);
+
+        Task Remove(Guid id);
     }
 }

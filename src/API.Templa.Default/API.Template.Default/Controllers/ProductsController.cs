@@ -18,7 +18,7 @@ namespace API.Template.Default.Controllers
     public class ProductsController : MainController
     {
         private readonly IProductRepository _productRepository;
-        private readonly ProductService _productService;
+        private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
         public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier, ProductService productService)
@@ -79,18 +79,6 @@ namespace API.Template.Default.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ProductViewModel>> DeleteProduct(Guid id)
-        {
-            var productViewModel = _mapper.Map<ProductViewModel>(await _productRepository.GetById(id));
-
-            if (productViewModel == null)
-            {
-                return NotFound();
-            }
-
-            await _productRepository.Remove(id);
-
-            return CustomResponse(productViewModel);
-        }
+        public async Task DeleteProduct(Guid id) => await _productService.Remove(id);
     }
 }
