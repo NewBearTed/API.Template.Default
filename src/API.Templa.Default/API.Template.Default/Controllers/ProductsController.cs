@@ -21,7 +21,7 @@ namespace API.Template.Default.Controllers
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
-        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier, ProductService productService)
+        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier, IProductService productService)
             : base(notifier)
         {
             _productRepository = productRepository;
@@ -58,7 +58,7 @@ namespace API.Template.Default.Controllers
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            await _productService.Update(_mapper.Map<Product>(productViewModel));
+            await _productService.Update(_mapper.Map<Product>(productViewModel), id);
 
 
             return CustomResponse(productViewModel);
@@ -72,7 +72,11 @@ namespace API.Template.Default.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            await _productService.Add(_mapper.Map<Product>(productViewModel));
+            var product = _mapper.Map<Product>(productViewModel);
+
+            await _productService.Add(product);
+
+            productViewModel.Id = product.Id;
 
             return CustomResponse(productViewModel);
         }

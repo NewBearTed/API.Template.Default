@@ -4,10 +4,6 @@ using API.Template.Default.Business.Services;
 using API.Template.Default.Data.DataBase;
 using API.Template.Default.Data.Repository;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.Template.Default.Configuration
 {

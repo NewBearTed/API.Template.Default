@@ -10,7 +10,7 @@ namespace API.Template.Default.Business.Interfaces
     {
         Task Add(Product product);
 
-        Task Update(Product product);
+        Task Update(Product product, Guid id);
 
         Task Remove(Guid id);
     }

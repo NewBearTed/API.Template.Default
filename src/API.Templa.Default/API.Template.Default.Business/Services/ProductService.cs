@@ -21,12 +21,24 @@ namespace API.Template.Default.Business.Services
         {
             if (!ValidationExecute(new ProdutoValidation(), product)) return;
 
+            if (await _productRepository.GetById(product.Id) != null)
+            {
+                Notify("Já existe produto com esse Id");
+                return;
+            }
+
             await _productRepository.Add(product);
         }
 
-        public async Task Update(Product product)
+        public async Task Update(Product product, Guid id)
         {
             if (!ValidationExecute(new ProdutoValidation(), product)) return;
+
+            if(await _productRepository.GetById(id) == null)
+            {
+                Notify("Produto não encontrado");
+                return;
+            }
 
             await _productRepository.Update(product);
         }
@@ -37,8 +49,7 @@ namespace API.Template.Default.Business.Services
 
             if(product == null) return;
 
-
-            await _productRepository.Update(product);
+            await _productRepository.Remove(id);
         }
     }
 }
