@@ -6,4 +6,8 @@
     <RootNamespace>API.Template.Default.Business</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.0.1" />
+  </ItemGroup>
+
 </Project>

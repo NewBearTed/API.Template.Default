@@ -10,6 +10,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using API.Template.Default.Business.Services;
 
 namespace API.Template.Default.Controllers
 {
@@ -17,13 +18,15 @@ namespace API.Template.Default.Controllers
     public class ProductsController : MainController
     {
         private readonly IProductRepository _productRepository;
+        private readonly ProductService _productService;
         private readonly IMapper _mapper;
 
-        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier)
+        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier, ProductService productService)
             : base(notifier)
         {
             _productRepository = productRepository;
             _mapper = mapper;
+            _productService = productService;
         }
 
         // GET: api/Products
@@ -55,7 +58,7 @@ namespace API.Template.Default.Controllers
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            await _productRepository.Update(_mapper.Map<Product>(productViewModel));
+            await _productService.Update(_mapper.Map<Product>(productViewModel));
 
 
             return CustomResponse(productViewModel);
@@ -69,7 +72,7 @@ namespace API.Template.Default.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            await _productRepository.Add(_mapper.Map<Product>(productViewModel));
+            await _productService.Add(_mapper.Map<Product>(productViewModel));
 
             return CustomResponse(productViewModel);
         }
