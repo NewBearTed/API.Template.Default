@@ -34,7 +34,7 @@ namespace API.Template.Default.Business.Services
         {
             if (!ValidationExecute(new ProdutoValidation(), product)) return;
 
-            if(await _productRepository.GetById(id) == null)
+            if(_productRepository.GetById(id).Result == null)
             {
                 Notify("Produto não encontrado");
                 return;
@@ -50,6 +50,11 @@ namespace API.Template.Default.Business.Services
             if(product == null) return;
 
             await _productRepository.Remove(id);
+        }
+
+        public void Dispose()
+        {
+            _productRepository?.Dispose();
         }
     }
 }

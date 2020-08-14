@@ -11,10 +11,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Template.Default.Business.Services;
+using API.Template.Default.Helper;
 
 namespace API.Template.Default.Controllers
 {
-    [Route("api/[controller]")]
     public class ProductsController : MainController
     {
         private readonly IProductRepository _productRepository;
@@ -60,6 +60,9 @@ namespace API.Template.Default.Controllers
 
             await _productService.Update(_mapper.Map<Product>(productViewModel), id);
 
+            if (!string.IsNullOrWhiteSpace(productViewModel.Photo))
+                PhotoHelper.SavePhoto(productViewModel.Id, productViewModel.Photo);
+            else PhotoHelper.DeletePhoto(productViewModel.Id);
 
             return CustomResponse(productViewModel);
         }
@@ -77,6 +80,9 @@ namespace API.Template.Default.Controllers
             await _productService.Add(product);
 
             productViewModel.Id = product.Id;
+
+            if (!string.IsNullOrWhiteSpace(productViewModel.Photo))
+                PhotoHelper.SavePhoto(productViewModel.Id, productViewModel.Photo);
 
             return CustomResponse(productViewModel);
         }
