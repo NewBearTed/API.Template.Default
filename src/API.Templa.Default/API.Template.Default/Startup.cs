@@ -29,15 +29,12 @@ namespace API.Template.Default
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<DefaultDBContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultDBContext")));
 
             services.AddApiConfig();
 
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen();
-
-            services.AddDbContext<DefaultDBContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultDBContext")));
+            services.AddSwaggerConfig();
 
             services.AddAutoMapper(typeof(Startup));
 
@@ -49,16 +46,7 @@ namespace API.Template.Default
         {
             app.UseApiConfig(env);
 
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Default API");
-                options.RoutePrefix = string.Empty;
-            });
+            app.UseSwaggerConfig();
             
         }
     }
