@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Template.Default.Business.Services;
 using API.Template.Default.Helper;
+using System.IO;
 
 namespace API.Template.Default.Controllers
 {
@@ -85,6 +86,29 @@ namespace API.Template.Default.Controllers
                 PhotoHelper.SavePhoto(productViewModel.Id, productViewModel.Photo);
 
             return CustomResponse(productViewModel);
+        }
+
+        [DisableRequestSizeLimit]
+        [HttpPost("UploadLongFile")]
+        public async Task<ActionResult> PostUploadLongFile(IFormFile formFile)
+        {
+            if (formFile == null || formFile.Length == 0)
+            {
+                NotifyErrors("Forneça uma imagem para este produto!");
+                return CustomResponse();
+            }
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/LongFiles", formFile.FileName);
+
+            if (System.IO.File.Exists(path))
+                System.IO.File.Delete(path);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await formFile.CopyToAsync(stream);
+            }
+
+            return CustomResponse();
         }
 
         // DELETE: api/Products/5

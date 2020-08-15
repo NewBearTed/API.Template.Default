@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\LongFiles\" />
     <Folder Include="wwwroot\images\ProductPhotos\" />
   </ItemGroup>
 
