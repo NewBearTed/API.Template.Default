@@ -7,6 +7,7 @@ using API.Template.Default.Business.Notifications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Logging;
 
 namespace API.Template.Default.Controllers
 {
@@ -15,10 +16,12 @@ namespace API.Template.Default.Controllers
     public abstract class MainController : ControllerBase
     {
         private readonly INotifier _notifier;
+        protected readonly ILogger _logger;
 
-        protected MainController(INotifier notifier)
+        protected MainController(INotifier notifier, ILogger logger)
         {
             _notifier = notifier;
+            _logger = logger;
         }
 
         protected bool IsValidOperation()

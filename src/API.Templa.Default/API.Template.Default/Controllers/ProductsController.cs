@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using API.Template.Default.Business.Services;
 using API.Template.Default.Helper;
 using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace API.Template.Default.Controllers
 {
@@ -22,8 +23,8 @@ namespace API.Template.Default.Controllers
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
-        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier, IProductService productService)
-            : base(notifier)
+        public ProductsController(IProductRepository productRepository, IMapper mapper, INotifier notifier, IProductService productService, ILogger<ProductsController> logger)
+            : base(notifier, logger)
         {
             _productRepository = productRepository;
             _mapper = mapper;
@@ -34,6 +35,8 @@ namespace API.Template.Default.Controllers
         [HttpGet]
         public async Task<IEnumerable<ProductViewModel>> GetProduct()
         {
+            _logger.LogInformation(message:"Buscando todos os produtos");
+
             return _mapper.Map<IEnumerable<ProductViewModel>>(await _productRepository.GetAll());
         }
 

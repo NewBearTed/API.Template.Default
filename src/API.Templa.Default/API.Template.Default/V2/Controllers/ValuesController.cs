@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Template.Default.Business.Interfaces;
 using API.Template.Default.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,7 +14,8 @@ namespace API.Template.Default.V2.Controllers
     [ApiVersion("2.0")]
     public class ValuesController : MainController
     {
-        public ValuesController(INotifier notifier) : base(notifier)
+
+        public ValuesController(INotifier notifier, ILogger<ValuesController> logger) : base(notifier, logger)
         {
         }
 
