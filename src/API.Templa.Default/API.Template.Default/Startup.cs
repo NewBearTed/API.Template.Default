@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using API.Template.Default.Data.DataBase;
 using API.Template.Default.Configuration;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace API.Template.Default
 {
@@ -42,11 +43,11 @@ namespace API.Template.Default
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             app.UseApiConfig(env);
 
-            app.UseSwaggerConfig();
+            app.UseSwaggerConfig(provider);
 
         }
     }

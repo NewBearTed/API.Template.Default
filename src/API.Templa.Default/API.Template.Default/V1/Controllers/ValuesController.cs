@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace API.Template.Default.V1.Controllers
 {
-    [ApiVersion("1.0")]
+    [ApiVersion("1.0", Deprecated = true)]
     public class ValuesController : MainController
     {
         public ValuesController(INotifier notifier, ILogger<ValuesController> logger) : base(notifier, logger)

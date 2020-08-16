@@ -1,6 +1,7 @@
 ﻿using API.Template.Default.Extensions.CustomMiddleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -19,6 +20,7 @@ namespace API.Template.Default.Configuration
             services.AddApiVersioning(options =>
             {
                 options.ReportApiVersions = true;
+                options.DefaultApiVersion = new ApiVersion(1, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
 
             });
