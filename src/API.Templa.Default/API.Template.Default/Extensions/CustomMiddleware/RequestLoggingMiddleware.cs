@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Template.Default.CustomMiddleware
+namespace API.Template.Default.Extensions.CustomMiddleware
 {
     public class RequestLoggingMiddleware
     {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using API.Template.Default.Extensions.CustomMiddleware;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,6 +39,10 @@ namespace API.Template.Default.Configuration
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ExceptionMiddleware>();
+
+            app.UseMiddleware<RequestLoggingMiddleware>();
 
             app.UseHttpsRedirection();
 

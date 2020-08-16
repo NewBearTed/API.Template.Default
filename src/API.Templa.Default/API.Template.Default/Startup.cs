@@ -14,7 +14,6 @@ using Microsoft.EntityFrameworkCore;
 using API.Template.Default.Data.DataBase;
 using API.Template.Default.Configuration;
 using AutoMapper;
-using API.Template.Default.CustomMiddleware;
 
 namespace API.Template.Default
 {
@@ -45,8 +44,6 @@ namespace API.Template.Default
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.AddCustomMiddleware();
-
             app.UseApiConfig(env);
 
             app.UseSwaggerConfig();
