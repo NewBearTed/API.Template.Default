@@ -10,8 +10,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using API.Template.Default.Data.DataBase;
+using API.Template.Default.Configuration;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
-namespace API.Templa.Default
+namespace API.Template.Default
 {
     public class Startup
     {
@@ -25,27 +30,25 @@ namespace API.Templa.Default
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddDbContext<DefaultDBContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultDBContext")));
+
+            services.AddApiConfig();
+
+            services.AddSwaggerConfig();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseApiConfig(env);
 
-            app.UseHttpsRedirection();
+            app.UseSwaggerConfig(provider);
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
     }
 }

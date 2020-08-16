@@ -1,6 +1,6 @@
 using System;
 
-namespace API.Templa.Default
+namespace API.Template.Default
 {
     public class WeatherForecast
     {

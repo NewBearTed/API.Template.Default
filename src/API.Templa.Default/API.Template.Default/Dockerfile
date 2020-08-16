@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["API.Templa.Default/API.Templa.Default.csproj", "API.Templa.Default/"]
-RUN dotnet restore "API.Templa.Default/API.Templa.Default.csproj"
+COPY ["API.Template.Default/API.Template.Default.csproj", "API.Template.Default/"]
+RUN dotnet restore "API.Template.Default/API.Template.Default.csproj"
 COPY . .
-WORKDIR "/src/API.Templa.Default"
-RUN dotnet build "API.Templa.Default.csproj" -c Release -o /app/build
+WORKDIR "/src/API.Template.Default"
+RUN dotnet build "API.Template.Default.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "API.Templa.Default.csproj" -c Release -o /app/publish
+RUN dotnet publish "API.Template.Default.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "API.Templa.Default.dll"]
+ENTRYPOINT ["dotnet", "API.Template.Default.dll"]
