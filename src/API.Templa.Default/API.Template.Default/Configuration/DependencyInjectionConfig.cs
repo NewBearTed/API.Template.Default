@@ -19,8 +19,8 @@ namespace API.Template.Default.Configuration
             services.AddScoped<DefaultDBContext>();
             services.AddScoped<IProductDbRepository, ProductDbRepository>();
             services.AddScoped<IProductHttpRepository>(repo=> new ProductHttpRepository(new HttpClient(), configuration["HttpURIs:APIProductURI"]));
-            services.AddScoped<IHttpProductService>();
-            services.AddScoped<IDbProductService>();
+            services.AddScoped<IHttpProductService, HttpProductService>();
+            services.AddScoped<IDbProductService, DbProductService>();
 
             services.AddScoped<INotifier, Notifier>();
 

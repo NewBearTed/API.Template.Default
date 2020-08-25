@@ -18,10 +18,10 @@ namespace API.Template.Default.Controllers
     public class ProductSubApiController : MainController
     {
         private readonly IProductHttpRepository _productHttpRepository;
-        private readonly HttpProductService _productService;
+        private readonly IHttpProductService _productService;
         private readonly IMapper _mapper;
 
-        public ProductSubApiController(IMapper mapper, INotifier notifier, HttpProductService productService, ILogger<ProductsController> logger, IProductHttpRepository productHttpRepository)
+        public ProductSubApiController(IMapper mapper, INotifier notifier, IHttpProductService productService, ILogger<ProductSubApiController> logger, IProductHttpRepository productHttpRepository)
             : base(notifier, logger)
         {
             _mapper = mapper;

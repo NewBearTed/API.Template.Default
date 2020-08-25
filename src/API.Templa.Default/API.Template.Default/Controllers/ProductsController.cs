@@ -20,10 +20,10 @@ namespace API.Template.Default.Controllers
     public class ProductsController : MainController
     {
         private readonly IProductDbRepository _productRepository;
-        private readonly DbProductService _productService;
+        private readonly IDbProductService _productService;
         private readonly IMapper _mapper;
 
-        public ProductsController(IProductDbRepository productRepository, IMapper mapper, INotifier notifier, DbProductService productService, ILogger<ProductsController> logger)
+        public ProductsController(IProductDbRepository productRepository, IMapper mapper, INotifier notifier, IDbProductService productService, ILogger<ProductsController> logger)
             : base(notifier, logger)
         {
             _productRepository = productRepository;

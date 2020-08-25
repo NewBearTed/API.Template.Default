@@ -39,6 +39,8 @@ namespace API.Template.Default
 
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddHealthCheckConfig(Configuration);
+
             services.ResolveDependencies(Configuration);
         }
 
@@ -49,6 +51,7 @@ namespace API.Template.Default
 
             app.UseSwaggerConfig(provider);
 
+            app.UseHealthCheckConfig();
         }
     }
 }
