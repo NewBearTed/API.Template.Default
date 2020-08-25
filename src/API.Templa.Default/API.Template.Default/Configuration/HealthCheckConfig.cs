@@ -16,19 +16,20 @@ namespace API.Template.Default.Configuration
 
             services.AddHealthChecksUI(setupSettings: setup =>
             {
-                setup.AddHealthCheckEndpoint("SystemX Endpoint", "http://remoteendpoint:9000/healthz");
+                setup.AddHealthCheckEndpoint("SystemX Endpoint", "https://localhost:44377/healthchecks");
             });
 
             return services;
         }
 
-        
+
         public static IApplicationBuilder UseHealthCheckConfig(this IApplicationBuilder app)
         {
 
-            app.UseHealthChecks("/healthchecks", new HealthCheckOptions { 
-                Predicate = _=> true,
-                ResponseWriter =UIResponseWriter.WriteHealthCheckUIResponse 
+            app.UseHealthChecks("/healthchecks", new HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
             app.UseHealthChecksUI();//Patch => /healthchecks-ui
 
