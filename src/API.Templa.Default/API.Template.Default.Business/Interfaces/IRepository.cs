@@ -15,6 +15,5 @@ namespace API.Template.Default.Business.Interfaces
         Task Update(TEntity entity);
         Task Remove(Guid id);
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
-        Task<int> SaveChanges();
     }
 }

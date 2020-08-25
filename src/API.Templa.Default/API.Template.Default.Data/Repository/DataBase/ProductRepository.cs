@@ -7,12 +7,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Template.Default.Data.Repository
+namespace API.Template.Default.Data.Repository.DataBase
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    public class ProductDbRepository : DbRepository<Product>, IProductDbRepository
     {
 
-        public ProductRepository(DefaultDBContext dbContext) : base(dbContext)
+        public ProductDbRepository(DefaultDBContext dbContext) : base(dbContext)
         {
 
         }

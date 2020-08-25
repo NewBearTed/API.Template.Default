@@ -2,20 +2,25 @@
 using API.Template.Default.Business.Notifications;
 using API.Template.Default.Business.Services;
 using API.Template.Default.Data.DataBase;
-using API.Template.Default.Data.Repository;
+using API.Template.Default.Data.Repository.DataBase;
+using API.Template.Default.Data.Repository.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Net.Http;
 
 namespace API.Template.Default.Configuration
 {
     public static class DependencyInjectionConfig
     {
-        public static IServiceCollection ResolveDependencies(this IServiceCollection services)
+        public static IServiceCollection ResolveDependencies(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<DefaultDBContext>();
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductDbRepository, ProductDbRepository>();
+            services.AddScoped<IProductHttpRepository>(repo=> new ProductHttpRepository(new HttpClient(), configuration["HttpURIs:APIProductURI"]));
+            services.AddScoped<IHttpProductService>();
+            services.AddScoped<IDbProductService>();
 
             services.AddScoped<INotifier, Notifier>();
 

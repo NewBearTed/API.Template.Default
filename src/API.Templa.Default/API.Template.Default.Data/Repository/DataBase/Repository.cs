@@ -8,14 +8,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace API.Template.Default.Data.Repository
+namespace API.Template.Default.Data.Repository.DataBase
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity, new()
+    public abstract class DbRepository<TEntity> : IDbRepository<TEntity> where TEntity : Entity, new()
     {
         protected readonly DefaultDBContext Db;
         protected readonly DbSet<TEntity> DbSet;
 
-        protected Repository(DefaultDBContext db)
+        protected DbRepository(DefaultDBContext db)
         {
             Db = db;
             DbSet = db.Set<TEntity>();
