@@ -1,8 +1,11 @@
-﻿using HealthChecks.UI.Client;
+﻿using API.Template.Default.Extensions.HealthChecks;
+using HealthChecks.System;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace API.Template.Default.Configuration
 {
@@ -10,9 +13,10 @@ namespace API.Template.Default.Configuration
     {
         public static IServiceCollection AddHealthCheckConfig(this IServiceCollection services, IConfiguration configuration)
         {
-
+            
             services.AddHealthChecks()
-                .AddSqlServer(configuration.GetConnectionString("DefaultDBContext"), name: "SQLDataBase");
+                .AddSqlServer(configuration.GetConnectionString("DefaultDBContext"), name: "My SQLDataBase")
+                .AddHealthChecksSystem();
 
             services.AddHealthChecksUI(setupSettings: setup =>
             {
